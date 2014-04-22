@@ -81,10 +81,15 @@ App::down(function()
 require app_path().'/filters.php';
 
 Form::macro('tel', function($name, $default = NULL, $attrs = array()) {
-  $item = '<input type="tel" name="'. $name .'" ';
+  $item = '<input type="tel" id="'. $name .'" name="'. $name .'" ';
   
-  if($default) {
-    $item .= 'value="'. $default .'" ';
+  $v = Form::getValueAttribute($name);
+  if($v) {
+    $item .= 'value="'. $v .'" ';
+  } else {
+    if($default) {
+      $item .= 'value="'. $default .'" ';
+    }
   }
   
   if(is_array($attrs)) {
