@@ -1,0 +1,368 @@
+/*****************************************************************************************************************/
+/* COLOURS 
+	MAIN BLUE : 0077c5
+*/	
+
+/*****************************************************************************************************************/
+/* TAGS */
+/*****************************************************************************************************************/
+	html {
+		height: 100%;
+		overflow-y: scroll;
+	}
+	body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		line-height: 1.3;
+		font-size: 87.5%;
+		background: #898989;
+		font-weight: 400;
+		color:#898989;
+		font-family: verdana, arial, sans-serif;
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	h1 {
+		margin: 65px 0 20px;
+		padding: 0 0 20px;
+		border-bottom: 1px #ccc solid;
+		font-size: 1.5em;
+		font-weight: 600;
+		color:#0081c6;
+		text-transform: uppercase;
+	}
+	h2 {
+		letter-spacing: 0.05em;
+		font-size: 2em;
+		margin: 20px 100px 30px 0;
+		font-weight: 300;
+	}
+	p {
+		line-height: 1.7;
+		font-size: 1.2em;
+	}
+	.site-wrap {
+		overflow: hidden;
+		width: 1024px;
+		display: block;
+		background:#fff;
+		padding: 30px 44px 50px;
+		margin: 50px auto;
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	#logo {
+		float: left;
+		display: block;
+		width: 160px;
+		height: 60px;
+	}
+	#logo a {
+		float: left;
+		display: block;
+		width: 160px;
+		height: 60px;
+		text-indent: -999em;
+		background: url(../images/logo-carfinco.gif) no-repeat;
+	}
+	.site-block {
+		floaT: left;
+		overflow: hidden;
+		width: 100%;
+		cleaR: both;
+		display: block;
+	}
+	#primary {
+		floaT: right;
+		
+	}
+	#primary ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;	
+	}
+	#primary ul li {
+		floaT: left;	
+		margin-left: 2px;
+	}
+	#primary ul li a {
+		display: block;
+		float: left;
+		text-transform: uppercase;
+		color:#999;
+		text-decoration: none;
+		line-height: 1;
+		padding: 10px 15px;
+		background: #e4e4e4;
+		-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+	}
+	#primary ul li.current a,
+	#primary ul li a:hover {
+		color:#fff;
+		background:#0081c6;
+	}
+	fieldset {
+		bordeR: none;
+		padding: 0;
+		margin: 0;
+	}
+	label {
+		display:block;
+		padding: 20px 0 5px;
+	}
+	label.error {
+		background:#f2dcd8;
+		border: 1px #ac1500 SOLID;
+		font-size: 0.9em;
+		color:#ac1500;
+		margin: -5px 0 0;
+		-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+		padding: 10px 5px 5px;
+		
+	}
+	input[type="text"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="email"],
+	.btn {
+		bordeR: none;
+		font-size: 1.3em;
+		color:#fff;
+		padding: 15px;
+		width: 100%;
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		background:#0081c6;
+		border-bottom: 5px #06689c solid;
+	}
+	input[type="text"]:focus,
+	input[type="tel"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus {
+		border-width: 2px;
+		padding-top: 18px;
+	}
+	
+	#update_profile fieldset {
+		width: 50%;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		float: left;
+		padding: 0 20px 0 0;
+	}
+	#update_profile fieldset + fieldset {
+		padding: 0 0 0 20px;
+	}
+	ul.info {
+		margin: 43px 0 0;
+		padding: 10px 25px;
+		list-style: none;
+		background:#e4e4e4;
+		width: 100%;
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	ul.info li {
+		margin: 0;
+		padding: 10px 0;
+	}
+	ul.info li strong {
+		color:#0081c6;
+		font-weight: normal;
+	}
+	#change_password {
+		
+	}
+	#change_password > label {
+		margin-top: 14px;
+		cursor: pointer;
+		
+	}
+	#change_password div {
+		width: 50%;
+		float: left;
+		padding-right: 10px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	#change_password div + div {
+		padding: 0 0 0 10px;
+	}
+	.actions {
+		padding-top: 30px;
+		float: right;
+	}
+	.actions .btn {
+		floaT: right;
+		line-height:1;
+		padding: 18px 25px 15px;
+		width: auto;
+		background: #ac1500;
+		border-color: #7a0f00;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.actions .btn:hover {
+		border-width: 2px;
+		padding-top: 21px;
+	}
+	.actions a {
+		float: right;
+		margin: 18px 20px 0 0;
+		font-size: 1.1em;
+		color:#999;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	
+	#access.site-wrap {
+		width: 560px;
+		padding: 30px 60px 50px;
+	}
+	#access #logo {
+		float: none;
+		margin: 0 auto;
+	}
+	#access h1 {
+		text-align: center;
+	}
+	#access fieldset div label {
+		font-size: 1.2em;
+	}
+	form {
+		clear:both;
+		display: block;
+		floaT: left;
+		width: 100%;
+	}
+	.alt-actions {
+		
+		padding-top: 10px;	
+		margin-top: 30px;
+		border-top: 1px #ccc solid;
+		text-transform: uppercase;
+		font-size: 0.8em;
+	}
+	.alt-actions p {
+		float: left;
+		margin: 20px 0 0;
+		line-height: 1;
+	}
+
+	.alt-actions a {	
+		margin: 20px 0 0;
+		float: right;
+		font-size: 1.1em;
+		line-height: 1;
+		text-decoration: none;
+		colOR: #0081c6;	
+	}
+	
+	.reports,
+	.archives {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.reports {
+		width: 75%;
+		floaT: left;
+	}
+	.reports li {
+		display: block;
+		floaT: left;
+		width: 31%;
+		margin: 0 2% 2% 0;
+	}
+	.reports a {
+		display:block;
+		background:#e4e4e4;
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		text-decoration: none;
+		color:#999;
+		text-transform: uppercase;
+		overflow: hidden;
+		text-align:center;
+	}
+	.reports a:hover {
+		color:#fff;
+		background:#0081c6;
+	}
+	.reports a em,
+	#help article h2 em {
+		font-style: normal;
+		padding: 10px;
+		display:inline-block;
+		font-weight:bold;
+	}
+	.arw-down,
+	.arw-up {
+		border-left: 1px #fff solid;
+		display: block;
+		floaT: right;
+		background: url(../images/arw-down.png) no-repeat center center;
+		padding: 8px;
+		width: 23px;
+		height: 23px;
+	}
+	.arw-up {
+		background: url(../images/arw-up.png) no-repeat center center;
+	}
+	.archives {
+		floaT: right;
+		width: 20%;
+	}
+	.archives li {
+		margin: 0 0 1px;
+		padding: 0;
+	}
+	
+	.archives a,
+	#help article h2 {
+		display: block;
+		text-align:center;
+		text-decoration: none;
+		color:#999;
+		font-weight:bold;
+		font-size: 1.4em;
+		padding: 7px 0;
+		background:#e4e4e4;
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	.archives li.current a,
+	.archives a:hover {
+		background:#0081c6;
+		color:#fff;
+	}
+	#help article {
+		margin-bottom: 10px;
+		overflow:hidden;
+	}
+	#help article h2 {
+		width:100%;
+		font-size: 1em;
+		text-align:left;
+		padding: 0 0 0 20px; 
+		font-weight: normal;
+		margin: 0;
+	}
+	#help article div {
+		overflow: hidden;
+		background:#e4e4e4;
+		width:100%;
+		float: left;
+		clear:both;
+		padding: 0 20px;
+
+		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	#help article div p {
+		font-size: 0.9em;
+	}
+	#help article h2.current {
+		color:#fff;
+		background:#0081c6;
+	}

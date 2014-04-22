@@ -1,0 +1,44 @@
+Where you come in is, Laravel logistics, support, setup, and the development of back-end code that does the following:
+
+- Executes on an automated schedule, the timing of which is controlled via web admin page
+
+- Upon execution, the following steps are taken:
+SFTP to a remote site using credentials
+Retrieve new report PDF files, if disconnected, resume, if no/little remaining disk space, send alert via email
+Store reports in the local file system as web accessible
+Update the website database with new reports
+Send an alert to "dealers" that have new reports available
+Clean up/archive/gzip reports older than x
+- The proposed file naming convention for report files is: <report#>-<dealer#>-<timestamp>.pdf
+
+
+
+Does this sound right?
+
+Sub Admins login > directed to reports page
+There is an extra nav item labeled "Admin"
+The admin section first lists all the dealers associated with the current sub admin. They can edit/delete/view reports for each dealer. The section will include a add Dealer button which displays a form like the current mockup for register, just in the wide content area?
+
+Admins login > directed to reports page
+There is an extra nav item labeled "Admin"
+The admin section first lists all the dealers associated within the system. They can edit/delete/view reports for each dealer. The section will include a add Sub Admin button which displays a form like the current mockup for register, just in the wide content area?
+
+The cut is going well so far! Will have them all done soon (existing pages). Corey, once the Laravel site is up and running can I get FTP access?
+
+
+
+Hi Ricky,
+
+They got back to me with details on the other pages they need.. looks like there are two:
+
+1 - a sub admin page for signing up dealers
+
+2 - a full admin page for viewing the reports page of any dealer in the system or creating sub admins
+
+ It sounds like the dealers won't be able to self register, that will be a function of the sub admins so I guess that page is built already.
+
+I have copied Corey here so you guys can connect and also work together to get the functional Laravel site up and running.
+
+Corey I will email Carfinco with a reminder that we need sample data files and a secure pick up location shortly.
+
+We can host the live site on Cloud A for now.
