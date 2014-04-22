@@ -7,8 +7,10 @@ Route::group(['prefix' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'profile'], function() {
-  Route::get ('/', ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
-  Route::post('/', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
+  Route::model('user', 'User');
+  
+  Route::get ('/',       ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
+  Route::post('/{user}', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
 });
 
 Route::get('/',        ['as' => 'home',    'uses' => 'HomeController@home']);

@@ -2,6 +2,7 @@
 
 use BaseController;
 
+use Auth;
 use View;
 
 class ProfileController extends BaseController {
@@ -11,10 +12,10 @@ class ProfileController extends BaseController {
   }
   
   public function view() {
-    return View::make('profile.view');
+    return View::make('profile.view')->with('user', Auth::user());
   }
   
-  public function update() {
+  public function update($user) {
     
   }
 }
