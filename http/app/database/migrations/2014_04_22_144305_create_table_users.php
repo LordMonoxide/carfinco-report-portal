@@ -12,6 +12,9 @@ class CreateTableUsers extends Migration {
       $table->string('name_first', 30);
       $table->string('name_last', 30);
       $table->string('phone', 20);
+      
+      $table->string('remember_token', 100)->nullable();
+      
       $table->timestamps();
     });
   }
