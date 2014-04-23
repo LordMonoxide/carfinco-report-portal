@@ -40,16 +40,24 @@
             
 						<div id="change_password">
 							<label for="is_change">
-                {{ Form::checkbox('is_change', null, Input::old('is_change'), ['id' => 'is_change']) }} Change Password?
+                {{ Form::checkbox('is_change', 'on', Input::old('is_change'), ['id' => 'is_change']) }} Change Password?
               </label>
 							
               <div>
                 {{ Form::label('password', 'Password') }}
                 {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'required']) }}
+                
+                @foreach($errors->get('password') as $message)
+                  {{ $message }}
+                @endforeach
 							</div>
 							<div>
-                {{ Form::label('password_confirm', 'Confirm Password') }}
-                {{ Form::password('password_confirm', ['placeholder' => 'Confirm Password', 'equalto' => '#password', 'class' => 'required']) }}
+                {{ Form::label('password_confirmation', 'Confirm Password') }}
+                {{ Form::password('password_confirmation', ['placeholder' => 'Confirm Password', 'equalto' => '#password', 'class' => 'required']) }}
+                
+                @foreach($errors->get('password_confirmation') as $message)
+                  {{ $message }}
+                @endforeach
 							</div>
 						</div>
 					</fieldset>
