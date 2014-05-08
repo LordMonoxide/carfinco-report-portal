@@ -12,11 +12,33 @@ class DatabaseSeeder extends Seeder {
 class TableSeeder extends Seeder {
   public function run() {
     User::create([
-      'email'      => 'admin@carfinco.com',
-      'password'   => Hash::make('password'),
-      'name_first' => 'First',
-      'name_last'  => 'Last',
-      'phone'      => '1234567890'
+      'email'        => 'dealer@carfinco.com',
+      'password'     => Hash::make('password'),
+      'account_type' => 'dealer',
+      'account_id'   => Dealer::create([
+        'number'     => 'dealer-number-00000',
+        'name_first' => 'First',
+        'name_last'  => 'Last',
+        'phone'      => '1234567890'
+      ])->id
+    ]);
+    
+    User::create([
+      'email'        => 'admin@carfinco.com',
+      'password'     => Hash::make('password'),
+      'account_type' => 'admin',
+      'account_id'   => Admin::create([
+        
+      ])->id
+    ]);
+    
+    User::create([
+      'email'        => 'root@carfinco.com',
+      'password'     => Hash::make('password'),
+      'account_type' => 'root',
+      'account_id'   => Root::create([
+        
+      ])->id
     ]);
   }
 }

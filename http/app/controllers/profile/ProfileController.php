@@ -15,10 +15,10 @@ class ProfileController extends BaseController {
   }
   
   public function view() {
-    return View::make('profile.view')->with('user', Auth::user());
+    return View::make('profile.view')->with('user', Auth::user())->with('dealer', Auth::user()->account);
   }
   
-  public function update($user) {
+  public function update($dealer) {
     $validator = Validator::make(Input::all(), [
       'name_first' => ['required', 'min:2',  'max:30'],
       'name_last'  => ['required', 'min:2',  'max:30'],
@@ -27,15 +27,16 @@ class ProfileController extends BaseController {
     ]);
     
     if($validator->passes()) {
-      $user->name_first = Input::get('name_first');
-      $user->name_last  = Input::get('name_last');
-      $user->phone      = Input::get('phone');
+      $dealer->name_first = Input::get('name_first');
+      $dealer->name_last  = Input::get('name_last');
+      $dealer->phone      = Input::get('phone');
       
       if(Input::has('is_change')) {
-        $user->password = Input::get('password');
+        $dealer->password = Input::get('password');
       }
       
-      $user->save();
+      $dealer->save();
+      $dealer->user()->touch();
       
       return Redirect::back();
     } else {

@@ -4,7 +4,6 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
-  protected $table = 'users';
   protected $hidden = array('password');
   
   public function getAuthIdentifier() {
@@ -29,5 +28,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   
   public function getRememberTokenName() {
     return 'remember_token';
+  }
+  
+  public function account() {
+    return $this->morphTo();
   }
 }

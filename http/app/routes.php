@@ -7,10 +7,14 @@ Route::group(['prefix' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'profile'], function() {
-  Route::model('user', 'User');
+  Route::model('dealer', 'Dealer');
   
-  Route::get ('/',       ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
-  Route::post('/{user}', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
+  Route::get ('/',         ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
+  Route::post('/{dealer}', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
+});
+
+Route::group(['prefix' => 'admin'], function() {
+  Route::get('/', ['as' => 'admin.view', 'uses' => 'admin\AdminController@view']);
 });
 
 Route::get('/',        ['as' => 'home',    'uses' => 'HomeController@home']);

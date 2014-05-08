@@ -4,7 +4,7 @@
 			<div class="content site-block">
 				<h1>Your Profile</h1>
         
-				{{ Form::model($user, ['route' => ['profile.update', $user->id], 'method' => 'POST', 'id' => 'update_profile', 'name' => 'update_profile']) }}
+				{{ Form::model($dealer, ['route' => ['profile.update', $dealer->id], 'method' => 'POST', 'id' => 'update_profile', 'name' => 'update_profile']) }}
 					<fieldset>
 						<div>
               {{ Form::label('name_first', 'First Name') }}
@@ -35,7 +35,7 @@
 					<fieldset>
 						<ul class="info">
 							<li>Email Address: <strong>{{ $user->email }}</strong></li>
-							<li>Dealership Number: <strong>A12345BH-002 **TODO**</strong></li>
+							<li>Dealership Number: <strong>{{ $dealer->number }}</strong></li>
 						</ul>
             
 						<div id="change_password">

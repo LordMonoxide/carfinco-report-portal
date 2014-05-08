@@ -28,10 +28,18 @@
 				</div>
 				<nav id="primary">
 					<ul>
-						<li>{{ HTML::linkAction('reports',      'Reports') }}</li>
-						<li>{{ HTML::linkAction('profile.view', 'Profile') }}</li>
-						<li>{{ HTML::linkAction('help',         'Help')    }}</li>
-						<li>{{ HTML::linkAction('auth.logout',  'Logout')  }}</li>
+            @if($user->account_type !== 'dealer')
+              <li>{{ HTML::linkAction('admin.view', 'Admin') }}
+            @endif
+            
+						<li>{{ HTML::linkAction('reports', 'Reports') }}</li>
+            
+            @if($user->account_type === 'dealer')
+              <li>{{ HTML::linkAction('profile.view', 'Profile') }}</li>
+            @endif
+            
+						<li>{{ HTML::linkAction('help',        'Help')   }}</li>
+						<li>{{ HTML::linkAction('auth.logout', 'Logout') }}</li>
 					</ul>
 				</nav>
 			</header>
