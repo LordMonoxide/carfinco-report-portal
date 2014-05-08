@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder {
 
 class TableSeeder extends Seeder {
   public function run() {
-    User::create([
+    $dealer = User::create([
       'email'        => 'dealer@carfinco.com',
       'password'     => Hash::make('password'),
       'account_type' => 'dealer',
@@ -40,6 +40,16 @@ class TableSeeder extends Seeder {
         
       ])->id
     ]);
+    
+    for($i = 1; $i <= 10; $i++) {
+      // Apparently it's time for Eloquent to be finicky...
+      DB::table('reports')->insert([
+        'dealer_id'  => $dealer->id,
+        'number'     => $i,
+        'created_at' => DB::raw('now()'),
+        'updated_at' => DB::raw('now()')
+      ]);
+    }
   }
 }
 
