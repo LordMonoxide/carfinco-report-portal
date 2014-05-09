@@ -76,13 +76,14 @@ class DealersController extends BaseController {
       $dealer->save();
       $dealer->user()->touch();
       
-      return Redirect::back();
+      return Redirect::route('admin.dealers.view');
     } else {
       return Redirect::back()->withInput(Input::except(['password', 'password_confirmation']))->withErrors($validator->messages());
     }
   }
   
   public function delete($dealer) {
-    
+    $dealer->delete();
+    return Redirect::route('admin.dealers.view');
   }
 }
