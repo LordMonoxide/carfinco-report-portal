@@ -17,6 +17,6 @@ Route::group(['prefix' => 'admin'], function() {
   Route::get('/', ['as' => 'admin.view', 'uses' => 'admin\AdminController@view']);
 });
 
-Route::get('/',        ['as' => 'home',    'uses' => 'HomeController@home']);
-Route::get('/reports', ['as' => 'reports', 'uses' => 'HomeController@reports']);
-Route::get('/help',    ['as' => 'help',    'uses' => 'HomeController@help']);
+Route::get('/',                ['as' => 'home',    'uses' => 'HomeController@home']);
+Route::get('/reports/{year?}', ['as' => 'reports', 'uses' => 'HomeController@reports'])->where('year', '[0-9]{4}');
+Route::get('/help',            ['as' => 'help',    'uses' => 'HomeController@help']);
