@@ -14,7 +14,7 @@ class TableSeeder extends Seeder {
     $root = User::create([
       'email'        => 'root@carfinco.com',
       'password'     => Hash::make('password'),
-      'account_type' => 'root',
+      'account_type' => 'Root',
       'account_id'   => Root::create([
         
       ])->id
@@ -23,7 +23,7 @@ class TableSeeder extends Seeder {
     $admin = User::create([
       'email'        => 'admin@carfinco.com',
       'password'     => Hash::make('password'),
-      'account_type' => 'admin',
+      'account_type' => 'Admin',
       'account_id'   => Admin::create([
         'root_id'      => $root->id
       ])->id
@@ -32,7 +32,7 @@ class TableSeeder extends Seeder {
     $dealer = User::create([
       'email'        => 'dealer@carfinco.com',
       'password'     => Hash::make('password'),
-      'account_type' => 'dealer',
+      'account_type' => 'Dealer',
       'account_id'   => Dealer::create([
         'admin_id'     => $admin->id,
         'number'       => 'dealer-number-00000',

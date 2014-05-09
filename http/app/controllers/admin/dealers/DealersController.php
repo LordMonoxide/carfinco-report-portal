@@ -42,7 +42,7 @@ class DealersController extends BaseController {
       $user = new User;
       $user->email        = Input::get('email');
       $user->password     = Hash::make(Input::get('password'));
-      $user->account_type = 'dealer';
+      $user->account_type = 'Dealer';
       $user->account_id   = $dealer->id;
       $user->save();
       
