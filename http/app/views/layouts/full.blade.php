@@ -29,7 +29,7 @@
 				<nav id="primary">
 					<ul>
             @if($user->account_type !== 'dealer')
-              <li>{{ HTML::linkAction('admin.view', 'Admin') }}
+              <li>{{ HTML::linkAction('admin.dealers.view', 'Admin') }}
             @endif
             
 						<li>{{ HTML::linkAction('reports', 'Reports') }}</li>

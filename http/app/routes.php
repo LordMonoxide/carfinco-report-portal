@@ -14,7 +14,16 @@ Route::group(['prefix' => 'profile'], function() {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-  Route::get('/', ['as' => 'admin.view', 'uses' => 'admin\AdminController@view']);
+  Route::group(['prefix' => 'dealers'], function() {
+    Route::model('dealer', 'Dealer');
+    
+    Route::get   ('/',                ['as' => 'admin.dealers.view',   'uses' => 'admin\dealers\DealersController@view']);
+    Route::get   ('/new',             ['as' => 'admin.dealers.new',    'uses' => 'admin\dealers\DealersController@create']);
+    Route::put   ('/new',             ['as' => 'admin.dealers.add',    'uses' => 'admin\dealers\DealersController@add']);
+    Route::get   ('/edit/{dealer}',   ['as' => 'admin.dealers.edit',   'uses' => 'admin\dealers\DealersController@edit']);
+    Route::post  ('/edit/{dealer}',   ['as' => 'admin.dealers.update', 'uses' => 'admin\dealers\DealersController@update']);
+    Route::delete('/delete/{dealer}', ['as' => 'admin.dealers.delete', 'uses' => 'admin\dealers\DealersController@delete']);
+  });
 });
 
 Route::get('/',                ['as' => 'home',    'uses' => 'HomeController@home']);

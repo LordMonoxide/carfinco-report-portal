@@ -21,23 +21,32 @@ class HomeController extends BaseController {
   }
   
   public function reports($yearNum = null) {
-    $yearNow = strftime('%Y');
-    
-    if($yearNum === null) {
-      $yearNum = $yearNow;
+    switch(Auth::user()->account_type) {
+      case 'dealer':
+        $yearNow = strftime('%Y');
+        
+        if($yearNum === null) {
+          $yearNum = $yearNow;
+        }
+        
+        $year = Auth::user()->account->reports()->whereRaw('YEAR(timestamp) = ' . $yearNum);
+        $month = [];
+        
+        for($i = 1; $i <= 12; $i++) {
+          $month[] = [
+            'name' => date("F", mktime(0, 0, 0, $i, date("d"), date("Y"))),
+            'data' => Auth::user()->account->reports()->whereRaw('YEAR(timestamp) = ' . $yearNum)->whereRaw('MONTH(timestamp) = ' . $i)->take(1)->first()
+          ];
+        }
+        
+        return View::make('reports')->with('user', Auth::user())->with('yearNow', $yearNow)->with('yearNum', $yearNum)->with('monthly', $month);
+        
+      case 'admin':
+        return View::make('admin.reports')->with('user', Auth::user())->with('dealers', Auth::user()->account->dealers);
+        
+      case 'root':
+        return View::make('root.reports')->with('user', Auth::user())->with('admins', Auth::user()->account->admins);
     }
-    
-    $year = Auth::user()->account->reports()->whereRaw('YEAR(timestamp) = ' . $yearNum);
-    $month = [];
-    
-    for($i = 1; $i <= 12; $i++) {
-      $month[] = [
-        'name' => date("F", mktime(0, 0, 0, $i, date("d"), date("Y"))),
-        'data' => Auth::user()->account->reports()->whereRaw('YEAR(timestamp) = ' . $yearNum)->whereRaw('MONTH(timestamp) = ' . $i)->take(1)->first()
-      ];
-    }
-    
-    return View::make('reports')->with('user', Auth::user())->with('yearNow', $yearNow)->with('yearNum', $yearNum)->with('monthly', $month);
   }
   
   public function help() {
