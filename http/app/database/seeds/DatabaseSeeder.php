@@ -41,13 +41,14 @@ class TableSeeder extends Seeder {
       ])->id
     ]);
     
-    for($i = 1; $i <= 10; $i++) {
+    for($i = 0; $i < 10; $i++) {
       // Apparently it's time for Eloquent to be finicky...
       DB::table('reports')->insert([
         'dealer_id'  => $dealer->id,
-        'number'     => $i,
-        'created_at' => DB::raw('now()'),
-        'updated_at' => DB::raw('now()')
+        'number'     => $i + 1,
+        'timestamp'  => DB::raw('DATE_SUB(NOW(), INTERVAL ' . $i . ' MONTH)'),
+        'created_at' => DB::raw('NOW()'),
+        'updated_at' => DB::raw('NOW()')
       ]);
     }
   }

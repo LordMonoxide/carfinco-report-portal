@@ -285,6 +285,7 @@
 		overflow: hidden;
 		text-align:center;
 	}
+	.reports li.current a,
 	.reports a:hover {
 		color:#fff;
 		background:#0081c6;

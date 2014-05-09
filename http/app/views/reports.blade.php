@@ -4,18 +4,9 @@
 			<div class="content site-block">
 				<h1>Reports</h1>
 				<ul class="reports">
-					<li><a href="#" title=""><em>January 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>February 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>March 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>January 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>February 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>March 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>January 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>February 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>March 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>January 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>February 2014</em><span class="arw-down">&nbsp;</span></a></li>
-					<li><a href="#" title=""><em>March 2014</em><span class="arw-down">&nbsp;</span></a></li>
+          @foreach($monthly as $month)
+            <li{{ $month['data'] !== null ? ' class="current"' : '' }}><a href="#" title=""><em>{{ $month['name'] }} 2014</em><span class="arw-down">&nbsp;</span></a></li>
+          @endforeach
 				</ul>
 				<ul class="archives">
 					<li class="current"><a href="#" title="2014">2014</a></li>

@@ -9,6 +9,7 @@ class Report extends Migration {
       $table->increments('id');
       $table->integer('dealer_id')->unsigned();
       $table->string('number');
+      $table->datetime('timestamp');
       $table->timestamps();
       
       $table->foreign('dealer_id')

@@ -6,6 +6,6 @@ class Dealer extends Eloquent {
   }
   
   public function reports() {
-    return $this->hasMany('Report');
+    return $this->hasMany('Reports');
   }
 }

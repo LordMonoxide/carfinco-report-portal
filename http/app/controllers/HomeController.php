@@ -1,5 +1,7 @@
 <?php
 
+use \Report;
+
 class HomeController extends BaseController {
   public function __construct() {
     $this->beforeFilter('auth',  ['only' => ['reports', 'help']]);
@@ -19,7 +21,17 @@ class HomeController extends BaseController {
   }
   
   public function reports() {
-    return View::make('reports')->with('user', Auth::user());
+    $year = Auth::user()->account->reports()->whereRaw('YEAR(timestamp) = YEAR(CURDATE())');
+    $month = [];
+    
+    for($i = 1; $i <= 12; $i++) {
+      $month[] = [
+        'name' => date("F", mktime(0, 0, 0, $i, date("d"), date("Y"))),
+        'data' => $year->whereRaw('MONTH(timestamp) = ' . $i)->take(1)->get()
+      ];
+    }
+    
+    return View::make('reports')->with('user', Auth::user())->with('yearly', $year)->with('monthly', $month);
   }
   
   public function help() {
