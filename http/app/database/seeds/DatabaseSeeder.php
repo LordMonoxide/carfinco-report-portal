@@ -11,35 +11,36 @@ class DatabaseSeeder extends Seeder {
 
 class TableSeeder extends Seeder {
   public function run() {
-    $dealer = User::create([
-      'email'        => 'dealer@carfinco.com',
-      'password'     => Hash::make('password'),
-      'account_type' => 'dealer',
-      'account_id'   => Dealer::create([
-        'number'     => 'dealer-number-00000',
-        'name_first' => 'First',
-        'name_last'  => 'Last',
-        'phone'      => '1234567890'
-      ])->id
-    ]);
-    
-    User::create([
-      'email'        => 'admin@carfinco.com',
-      'password'     => Hash::make('password'),
-      'account_type' => 'admin',
-      'account_id'   => Admin::create([
-        
-      ])->id
-    ]);
-    
-    User::create([
+    $root = User::create([
       'email'        => 'root@carfinco.com',
       'password'     => Hash::make('password'),
       'account_type' => 'root',
       'account_id'   => Root::create([
         
       ])->id
-    ]);
+    ])->account;
+    
+    $admin = User::create([
+      'email'        => 'admin@carfinco.com',
+      'password'     => Hash::make('password'),
+      'account_type' => 'admin',
+      'account_id'   => Admin::create([
+        'root_id'      => $root->id
+      ])->id
+    ])->account;
+    
+    $dealer = User::create([
+      'email'        => 'dealer@carfinco.com',
+      'password'     => Hash::make('password'),
+      'account_type' => 'dealer',
+      'account_id'   => Dealer::create([
+        'admin_id'     => $admin->id,
+        'number'       => 'dealer-number-00000',
+        'name_first'   => 'First',
+        'name_last'    => 'Last',
+        'phone'        => '1234567890'
+      ])->id
+    ])->account;
     
     for($i = 0; $i < 10; $i++) {
       // Apparently it's time for Eloquent to be finicky...
