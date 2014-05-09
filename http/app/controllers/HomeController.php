@@ -14,9 +14,9 @@ class HomeController extends BaseController {
     }
     
     switch(Auth::user()->account_type) {
-      case 'dealer': return Redirect::route('profile.view');
-      case 'admin' : return Redirect::route('reports');
-      case 'root'  : return Redirect::route('reports');
+      case 'Dealer': return Redirect::route('profile.view');
+      case 'Admin' : return Redirect::route('reports');
+      case 'Root'  : return Redirect::route('reports');
     }
   }
   
