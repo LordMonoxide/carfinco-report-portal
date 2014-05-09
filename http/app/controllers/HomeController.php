@@ -22,7 +22,7 @@ class HomeController extends BaseController {
   
   public function reports($yearNum = null) {
     switch(Auth::user()->account_type) {
-      case 'dealer':
+      case 'Dealer':
         $yearNow = strftime('%Y');
         
         if($yearNum === null) {
@@ -41,10 +41,10 @@ class HomeController extends BaseController {
         
         return View::make('reports')->with('user', Auth::user())->with('yearNow', $yearNow)->with('yearNum', $yearNum)->with('monthly', $month);
         
-      case 'admin':
+      case 'Admin':
         return View::make('admin.reports')->with('user', Auth::user())->with('dealers', Auth::user()->account->dealers);
         
-      case 'root':
+      case 'Root':
         return View::make('root.reports')->with('user', Auth::user())->with('admins', Auth::user()->account->admins);
     }
   }
