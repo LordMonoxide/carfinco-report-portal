@@ -70,11 +70,12 @@ class DealersController extends BaseController {
       $dealer->phone      = Input::get('phone');
       
       if(Input::has('is_change')) {
-        $dealer->password = Input::get('password');
+        $dealer->user->password = Input::get('password');
+        $dealer->user->save();
       }
       
       $dealer->save();
-      $dealer->user()->touch();
+      $dealer->user->touch();
       
       return Redirect::route('admin.dealers.view');
     } else {

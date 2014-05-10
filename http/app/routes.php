@@ -26,6 +26,19 @@ Route::group(['prefix' => 'admin'], function() {
   });
 });
 
+Route::group(['prefix' => 'root'], function() {
+  Route::group(['prefix' => 'admins'], function() {
+    Route::model('admin', 'Admin');
+    
+    Route::get   ('/',               ['as' => 'root.admins.view',   'uses' => 'root\admins\AdminsController@view']);
+    Route::get   ('/new',            ['as' => 'root.admins.new',    'uses' => 'root\admins\AdminsController@create']);
+    Route::put   ('/new',            ['as' => 'root.admins.add',    'uses' => 'root\admins\AdminsController@add']);
+    Route::get   ('/edit/{admin}',   ['as' => 'root.admins.edit',   'uses' => 'root\admins\AdminsController@edit']);
+    Route::post  ('/edit/{admin}',   ['as' => 'root.admins.update', 'uses' => 'root\admins\AdminsController@update']);
+    Route::delete('/delete/{admin}', ['as' => 'root.admins.delete', 'uses' => 'root\admins\AdminsController@delete']);
+  });
+});
+
 Route::get('/',                ['as' => 'home',    'uses' => 'HomeController@home']);
 Route::get('/reports/{year?}', ['as' => 'reports', 'uses' => 'HomeController@reports'])->where('year', '[0-9]{4}');
 Route::get('/help',            ['as' => 'help',    'uses' => 'HomeController@help']);
