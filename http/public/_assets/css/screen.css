@@ -33,19 +33,48 @@
 		color:#0081c6;
 		text-transform: uppercase;
 	}
+	h1 .btn {
+		
+		text-decoration: none;
+		font-size: 0.6em;
+		float: right;
+		width:auto;
+		margin-top: -10px;
+	}
 	h2 {
 		letter-spacing: 0.05em;
 		font-size: 2em;
 		margin: 20px 100px 30px 0;
 		font-weight: 300;
 	}
+	a {
+		-ms-word-break: break-all;
+     word-break: break-all;
+
+     
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+	}
 	p {
 		line-height: 1.7;
 		font-size: 1.2em;
+		-ms-word-break: break-all;
+		     word-break: break-all;
+		
+		     
+		     word-break: break-word;
+		
+		-webkit-hyphens: auto;
+		   -moz-hyphens: auto;
+		        hyphens: auto;
 	}
 	.site-wrap {
 		overflow: hidden;
-		width: 1024px;
+		max-width: 1024px;
+		width:95%;
 		display: block;
 		background:#fff;
 		padding: 30px 44px 50px;
@@ -84,7 +113,7 @@
 		list-style: none;	
 	}
 	#primary ul li {
-		floaT: left;	
+		float: left;	
 		margin-left: 2px;
 	}
 	#primary ul li a {
@@ -140,7 +169,8 @@
 	input[type="text"]:focus,
 	input[type="tel"]:focus,
 	input[type="password"]:focus,
-	input[type="email"]:focus {
+	input[type="email"]:focus,
+	.btn:hover {
 		border-width: 2px;
 		padding-top: 18px;
 	}
@@ -193,7 +223,7 @@
 		float: right;
 	}
 	.actions .btn {
-		floaT: right;
+		float: right;
 		line-height:1;
 		padding: 18px 25px 15px;
 		width: auto;
@@ -201,6 +231,12 @@
 		border-color: #7a0f00;
 		font-weight: bold;
 		text-transform: uppercase;
+	}
+	.actions .btn.remove {
+		margin-right:10px;
+		background:#999;
+		border-color:#666;
+		
 	}
 	.actions .btn:hover {
 		border-width: 2px;
@@ -216,7 +252,8 @@
 	}
 	
 	#access.site-wrap {
-		width: 560px;
+		max-width: 560px;
+		width: 90%;
 		padding: 30px 60px 50px;
 	}
 	#access #logo {
@@ -232,7 +269,7 @@
 	form {
 		clear:both;
 		display: block;
-		floaT: left;
+		float: left;
 		width: 100%;
 	}
 	.alt-actions {
@@ -255,7 +292,7 @@
 		font-size: 1.1em;
 		line-height: 1;
 		text-decoration: none;
-		colOR: #0081c6;	
+		color: #0081c6;	
 	}
 	
 	.reports,
@@ -285,7 +322,24 @@
 		overflow: hidden;
 		text-align:center;
 	}
-	.reports li.current a,
+	#dealers ul a  {
+		text-align:left;
+	}
+	#dealers ul a em {
+		padding-bottom: 0;
+		background:#0077c5;
+		color:#fff;
+		width:100%;
+		padding: 10px;
+	}
+	#dealers ul a span {
+		
+		text-transform: none;
+		font-size: 0.9em;
+		padding: 10px 10px 10px;
+		line-height:1.7;
+		display:block;
+	}
 	.reports a:hover {
 		color:#fff;
 		background:#0081c6;
@@ -296,12 +350,16 @@
 		padding: 10px;
 		display:inline-block;
 		font-weight:bold;
+		width:70%;
+	}
+	#help article h2 em {
+		
 	}
 	.arw-down,
 	.arw-up {
-		border-left: 1px #fff solid;
+
 		display: block;
-		floaT: right;
+		float: right;
 		background: url(../images/arw-down.png) no-repeat center center;
 		padding: 8px;
 		width: 23px;
@@ -310,9 +368,11 @@
 	.arw-up {
 		background: url(../images/arw-up.png) no-repeat center center;
 	}
+	.search,
 	.archives {
-		floaT: right;
+		float: right;
 		width: 20%;
+		clear:none;
 	}
 	.archives li {
 		margin: 0 0 1px;
@@ -366,4 +426,117 @@
 	#help article h2.current {
 		color:#fff;
 		background:#0081c6;
+	}
+	
+	.search label {
+		padding:0;
+		margin: 0 0 5px;
+	}
+	.search input[type="text"] {
+		background:#fff;
+		border:2px #ccc solid;
+		padding: 5px 10px;
+		color:#999;		
+		margin: 0 0 10px;
+	}
+	.search button[type="submit"] {
+		font-size: 1em;
+		text-transform: uppercase;
+		font-weight: bold;
+		background:#999;
+		border-color:#666;
+	}
+	@media screen and (max-width: 900px) {
+		#primary ul li a {
+			font-size:0.8em;
+			
+		}
+		
+	}
+	@media screen and (max-width: 768px) {
+		.reports {
+			width:100%;
+		}	
+		.reports li {
+			width:48%;
+		}
+		.search, .archives {
+			width:100%;
+			padding: 30px 0;
+		}
+		.site-wrap {
+			padding: 30px 30px 40px;
+			margin-top: 10px auto 10px;
+		}
+		#primary,
+		#primary ul {
+			clear:both;
+			width:100%;
+		}
+		#primary ul {
+			margin-top: 20px;
+			
+		}
+		#primary ul li {
+			float: left;
+			width: 16.66666666666667%;
+			margin: 0;
+		}
+		#primary ul li a {
+			display: block;
+			text-align:Center;
+			width: 98%;
+			margin: 0px 1%;
+			-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		}
+		
+	}
+	@media screen and (max-width: 630px) {
+		#update_profile fieldset,
+		#update_profile fieldset + fieldset {
+			width:100%;
+			padding:0;
+		}
+		
+	}
+	@media screen and (max-width: 600px) {
+		.reports li {
+			width:100%;
+		}
+		.site-wrap {
+			margin-top:10px;
+		}
+		#logo {
+			float: none;
+			margin: 0 auto;
+			
+		}
+		#primary ul li {
+			float: left;
+			width: 100%;
+			margin: 0;
+		}
+		#primary ul li a {
+			width:100%;
+			margin: 0 0 2px;
+			
+		}
+		#access.site-wrap {
+			max-width: 560px;
+			width: 90%;
+			padding: 30px 20px 50px;
+		}
+		#help article h2 em { 
+			width: 70%;
+			font-weight:normal;
+		}
+	}
+	@media screen and (max-width: 400px) {
+		#change_password div,
+		#change_password div + div {
+			width:100%;
+			padding:0;
+			
+		}
+		
 	}
