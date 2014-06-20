@@ -36,14 +36,15 @@
               <li>{{ HTML::linkAction('admin.dealers.view', 'Admin') }}
             @endif
             
-						<li>{{ HTML::linkAction('reports', 'Reports') }}</li>
-            
-            @if($user->account_type === 'Dealer')
-              <li>{{ HTML::linkAction('profile.view', 'Profile') }}</li>
+            @if($user->account_type === 'Root')
+              <li>{{ HTML::linkAction('reports', 'Dealers') }}</li>
+            @else
+              <li>{{ HTML::linkAction('reports', 'Reports') }}</li>
             @endif
             
-						<li>{{ HTML::linkAction('help',        'Help')   }}</li>
-						<li>{{ HTML::linkAction('auth.logout', 'Logout') }}</li>
+            <li>{{ HTML::linkAction('profile.view', 'Profile') }}</li>
+            <li>{{ HTML::linkAction('help',         'Help')   }}</li>
+						<li>{{ HTML::linkAction('auth.logout',  'Logout') }}</li>
 					</ul>
 				</nav>
 			</header>
