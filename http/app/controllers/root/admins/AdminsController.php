@@ -1,4 +1,4 @@
-<?php namespace Root\Admins;
+<?php namespace root\admins;
 
 use Auth;
 use Hash;
