@@ -8,4 +8,8 @@ class Root extends Eloquent {
   public function admins() {
     return $this->hasMany('Admin');
   }
+  
+  public function dealers() {
+    return $this->hasManyThrough('Dealer', 'Admin');
+  }
 }
