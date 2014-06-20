@@ -34,14 +34,6 @@
             @endforeach
           </tbody>
         </table>
-        
-				<form class="search">
-					<fieldset>
-						<label>Search by keyword</label>
-						<input type="text" name="" />
-						<button type="submit" class="btn">Search</button>
-					</fieldset>
-				</form>
 			</div>
 		</div>
 @stop

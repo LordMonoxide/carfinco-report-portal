@@ -44,11 +44,11 @@ class AdminsController extends BaseController {
     }
   }
   
-  public function edit($admin) {
+  public function edit(Admin $admin) {
     return View::make('root.admins.edit')->with('user', Auth::user())->with('admin', $admin);
   }
   
-  public function update($admin) {
+  public function update(Admin $admin) {
     $validator = Validator::make(Input::all(), [
       'password'   => ['required_with:is_change', 'confirmed', 'min:8', 'max:255']
     ]);
@@ -66,7 +66,7 @@ class AdminsController extends BaseController {
     }
   }
   
-  public function delete($admin) {
+  public function delete(Admin $admin) {
     $admin->delete();
     return Redirect::route('root.admins.view');
   }

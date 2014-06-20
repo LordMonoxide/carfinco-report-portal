@@ -7,10 +7,8 @@ Route::group(['prefix' => 'auth'], function() {
 });
 
 Route::group(['prefix' => 'profile'], function() {
-  Route::model('dealer', 'Dealer');
-  
-  Route::get ('/',         ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
-  Route::post('/{dealer}', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
+  Route::get ('/', ['as' => 'profile.view',   'uses' => 'profile\ProfileController@view']);
+  Route::post('/', ['as' => 'profile.update', 'uses' => 'profile\ProfileController@update']);
 });
 
 Route::group(['prefix' => 'admin'], function() {
@@ -36,6 +34,17 @@ Route::group(['prefix' => 'root'], function() {
     Route::get   ('/edit/{admin}',   ['as' => 'root.admins.edit',   'uses' => 'root\admins\AdminsController@edit']);
     Route::post  ('/edit/{admin}',   ['as' => 'root.admins.update', 'uses' => 'root\admins\AdminsController@update']);
     Route::delete('/delete/{admin}', ['as' => 'root.admins.delete', 'uses' => 'root\admins\AdminsController@delete']);
+  });
+  
+  Route::group(['prefix' => 'dealers'], function() {
+    Route::model('dealer', 'Dealer');
+    
+    Route::get   ('/',                ['as' => 'root.dealers.view',   'uses' => 'root\dealers\DealersController@view']);
+    Route::get   ('/new',             ['as' => 'root.dealers.new',    'uses' => 'root\dealers\DealersController@create']);
+    Route::put   ('/new',             ['as' => 'root.dealers.add',    'uses' => 'root\dealers\DealersController@add']);
+    Route::get   ('/edit/{dealer}',   ['as' => 'root.dealers.edit',   'uses' => 'root\dealers\DealersController@edit']);
+    Route::post  ('/edit/{dealer}',   ['as' => 'root.dealers.update', 'uses' => 'root\dealers\DealersController@update']);
+    Route::delete('/delete/{dealer}', ['as' => 'root.dealers.delete', 'uses' => 'root\dealers\DealersController@delete']);
   });
 });
 

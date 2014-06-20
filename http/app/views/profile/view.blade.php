@@ -5,37 +5,42 @@
 				<h1>Your Profile</h1>
         
 				{{ Form::model($dealer, ['route' => ['profile.update', $dealer->id], 'method' => 'POST', 'id' => 'update_profile', 'name' => 'update_profile']) }}
-					<fieldset>
-						<div>
-              {{ Form::label('name_first', 'First Name') }}
-              {{ Form::text ('name_first', Input::old('name_first'), ['placeholder' => 'First Name', 'required' => 'required', 'autofocus' => 'autofocus', 'class' => 'required']) }}
-              
-              @foreach($errors->get('name_first') as $message)
-                {{ $message }}
-              @endforeach
-						</div>
-						<div>
-              {{ Form::label('name_last', 'Last Name') }}
-              {{ Form::text ('name_last', Input::old('name_last'), ['placeholder' => 'Last Name', 'required' => 'required', 'class' => 'required']) }}
-              
-              @foreach($errors->get('name_last') as $message)
-                {{ $message }}
-              @endforeach
-						</div>
-						<div>
-              {{ Form::label('phone', 'Phone Number') }}
-              {{ Form::tel  ('phone', Input::old('phone'), ['placeholder' => 'Phone Number', 'required' => 'required', 'class' => 'required']) }}
-              
-              @foreach($errors->get('phone') as $message)
-                {{ $message }}
-              @endforeach
-						</div>
-					</fieldset>
+          @if($user->account_type === 'Dealer')
+            <fieldset>
+              <div>
+                {{ Form::label('name_first', 'First Name') }}
+                {{ Form::text ('name_first', Input::old('name_first'), ['placeholder' => 'First Name', 'required' => 'required', 'autofocus' => 'autofocus', 'class' => 'required']) }}
+                
+                @foreach($errors->get('name_first') as $message)
+                  {{ $message }}
+                @endforeach
+              </div>
+              <div>
+                {{ Form::label('name_last', 'Last Name') }}
+                {{ Form::text ('name_last', Input::old('name_last'), ['placeholder' => 'Last Name', 'required' => 'required', 'class' => 'required']) }}
+                
+                @foreach($errors->get('name_last') as $message)
+                  {{ $message }}
+                @endforeach
+              </div>
+              <div>
+                {{ Form::label('phone', 'Phone Number') }}
+                {{ Form::tel  ('phone', Input::old('phone'), ['placeholder' => 'Phone Number', 'required' => 'required', 'class' => 'required']) }}
+                
+                @foreach($errors->get('phone') as $message)
+                  {{ $message }}
+                @endforeach
+              </div>
+            </fieldset>
+          @endif
           
 					<fieldset>
 						<ul class="info">
 							<li>Email Address: <strong>{{ $user->email }}</strong></li>
-							<li>Dealership Number: <strong>{{ $dealer->number }}</strong></li>
+              
+              @if($user->account_type === 'Dealer')
+                <li>Dealership Number: <strong>{{ $dealer->number }}</strong></li>
+              @endif
 						</ul>
             
 						<div id="change_password">

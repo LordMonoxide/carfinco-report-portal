@@ -5,12 +5,14 @@
         <div class="content site-block">
           <h1>Reports for {{ $admin->user->email }}</h1>
           @foreach($admin->dealers as $dealer)
-            <h3>Reports for {{ $dealer->name }} ({{$dealer->number }})</h1>
-            <ul class="reports">
-              @foreach($dealer->reports as $report)
-                <li><a href="#" title=""><em>{{ $report->timestamp }}</em><span class="arw-down">&nbsp;</span></a></li>
-              @endforeach
-            </ul>
+            <div class="context site-block">
+              <h3>Reports for {{ $dealer->name }} ({{$dealer->number }})</h1>
+              <ul class="reports">
+                @foreach($dealer->reports as $report)
+                  <li><a href="#" title=""><em>{{ $report->timestamp }}</em><span class="arw-down">&nbsp;</span></a></li>
+                @endforeach
+              </ul>
+            </div>
           @endforeach
         </div>
       @endforeach

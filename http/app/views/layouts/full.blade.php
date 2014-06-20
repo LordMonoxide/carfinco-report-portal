@@ -15,6 +15,22 @@
         {{ HTML::script('_assets/js/plugins.js') }}
         {{ HTML::script('_assets/js/init.js') }}
         {{ HTML::script('_assets/js/modernizr.2.0.6.js') }}
+        
+        {{ HTML::style('_assets/css/tables.css') }}
+        {{ HTML::style('_assets/css/TableTools.css') }}
+        {{ HTML::script('_assets/js/jquery.dataTables.min.js') }}
+        {{ HTML::script('_assets/js/ZeroClipboard.js') }}
+        {{ HTML::script('_assets/js/TableTools.js') }}
+        
+        <script>
+          $(function() {
+            TableTools.DEFAULTS.sSwfPath = '{{ asset('_assets/swf/copy_csv_xls_pdf.swf') }}';
+            $('table').dataTable({
+              'iDisplayLength': 50,
+              'sDom': 'T<"clear">lfrtip'
+            });
+          });
+        </script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -37,7 +53,7 @@
             @endif
             
             @if($user->account_type === 'Root')
-              <li>{{ HTML::linkAction('reports', 'Dealers') }}</li>
+              <li>{{ HTML::linkAction('root.dealers.view', 'Dealers') }}</li>
             @else
               <li>{{ HTML::linkAction('reports', 'Reports') }}</li>
             @endif

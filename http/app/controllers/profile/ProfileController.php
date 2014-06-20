@@ -3,6 +3,7 @@
 use BaseController;
 
 use Auth;
+use Hash;
 use Input;
 use Redirect;
 use Validator;
@@ -18,25 +19,36 @@ class ProfileController extends BaseController {
     return View::make('profile.view')->with('user', Auth::user())->with('dealer', Auth::user()->account);
   }
   
-  public function update($dealer) {
-    $validator = Validator::make(Input::all(), [
-      'name_first' => ['required', 'min:2',  'max:30'],
-      'name_last'  => ['required', 'min:2',  'max:30'],
-      'phone'      => ['required', 'min:10', 'max:20'],
-      'password'   => ['required_with:is_change', 'confirmed', 'min:8', 'max:255']
-    ]);
+  public function update() {
+    $user = Auth::user();
+    
+    if($user->account_type === 'Dealer') {
+      $validator = Validator::make(Input::all(), [
+        'name_first' => ['required', 'min:2',  'max:30'],
+        'name_last'  => ['required', 'min:2',  'max:30'],
+        'phone'      => ['required', 'min:10', 'max:20'],
+        'password'   => ['required_with:is_change', 'confirmed', 'min:8', 'max:255']
+      ]);
+    } else {
+      $validator = Validator::make(Input::all(), [
+        'password'   => ['required_with:is_change', 'confirmed', 'min:8', 'max:255']
+      ]);
+    }
     
     if($validator->passes()) {
-      $dealer->name_first = Input::get('name_first');
-      $dealer->name_last  = Input::get('name_last');
-      $dealer->phone      = Input::get('phone');
-      
-      if(Input::has('is_change')) {
-        $dealer->password = Input::get('password');
+      if($user->account_type === 'Dealer') {
+        $dealer = $user->account();
+        $dealer->name_first = Input::get('name_first');
+        $dealer->name_last  = Input::get('name_last');
+        $dealer->phone      = Input::get('phone');
+        $dealer->save();
+        $user->touch();
       }
       
-      $dealer->save();
-      $dealer->user()->touch();
+      if(Input::has('is_change')) {
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+      }
       
       return Redirect::back();
     } else {
