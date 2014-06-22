@@ -1,3 +1,24 @@
+table {
+  width: 100%;
+}
+
+th {
+  border-bottom: 1px dashed lightgray;
+  padding: 0.5em;
+  min-width: 35px;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+td {
+  border-right: 1px dashed lightgray;
+  padding: 0.5em;
+}
+
+td:last-of-type {
+  border-right: none;
+}
+
 /*
  *  File:         demo_table.css
  *  CVS:          $Id$
