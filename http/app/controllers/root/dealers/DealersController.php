@@ -13,6 +13,11 @@ use Dealer;
 use User;
 
 class DealersController extends BaseController {
+  public function __construct() {
+    $this->beforeFilter('root');
+    $this->beforeFilter('csrf',  ['on' => ['post', 'put', 'delete']]);
+  }
+  
   public function view() {
     return View::make('root.dealers.view')->with('user', Auth::user())->with('dealers', Auth::user()->account->dealers);
   }

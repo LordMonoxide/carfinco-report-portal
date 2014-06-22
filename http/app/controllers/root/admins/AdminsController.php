@@ -12,6 +12,11 @@ use Admin;
 use User;
 
 class AdminsController extends BaseController {
+  public function __construct() {
+    $this->beforeFilter('root');
+    $this->beforeFilter('csrf',  ['on' => ['post', 'put', 'delete']]);
+  }
+  
   public function view() {
     return View::make('root.admins.view')->with('user', Auth::user())->with('admins', Auth::user()->account->admins);
   }

@@ -47,6 +47,26 @@ Route::filter('auth.basic', function() {
   return Auth::basic();
 });
 
+Route::filter('admin', function() {
+  if(Auth::guest()) {
+    return Redirect::guest(URL::route('auth.login'));
+  }
+  
+  if(Auth::user()->account_type !== 'Admin') {
+    return Redirect::route('home');
+  }
+});
+
+Route::filter('root', function() {
+  if(Auth::guest()) {
+    return Redirect::guest(URL::route('auth.login'));
+  }
+  
+  if(Auth::user()->account_type !== 'Root') {
+    return Redirect::route('home');
+  }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
