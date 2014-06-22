@@ -14,7 +14,6 @@
               <th>Email</th>
               <th>Phone</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           
@@ -32,8 +31,6 @@
                   {{ Form::open(['route' => ['root.dealers.edit', $dealer->id], 'method' => 'get']) }}
                   {{ Form::submit('Edit') }}
                   {{ Form::close() }}
-                </td>
-                <td>
                   {{ Form::open(['route' => ['root.dealers.delete', $dealer->id], 'method' => 'delete']) }}
                   {{ Form::submit('Delete') }}
                   {{ Form::close() }}

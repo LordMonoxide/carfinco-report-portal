@@ -10,7 +10,6 @@
               <th>#</th>
               <th>Email</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           
@@ -24,8 +23,6 @@
                   {{ Form::open(['route' => ['root.admins.edit', $admin->id], 'method' => 'get']) }}
                   {{ Form::submit('Edit') }}
                   {{ Form::close() }}
-                </td>
-                <td>
                   {{ Form::open(['route' => ['root.admins.delete', $admin->id], 'method' => 'delete']) }}
                   {{ Form::submit('Delete') }}
                   {{ Form::close() }}

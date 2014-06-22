@@ -19,6 +19,16 @@ td:last-of-type {
   border-right: none;
 }
 
+table form {
+  clear: none;
+  width: auto;
+  margin-right: 0.5em;
+}
+
+table form:last-of-type {
+  margin-right: 0em;
+}
+
 /*
  *  File:         demo_table.css
  *  CVS:          $Id$

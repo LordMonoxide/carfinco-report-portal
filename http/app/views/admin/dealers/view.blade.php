@@ -13,7 +13,6 @@
               <th>Email</th>
               <th>Phone</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           
@@ -30,8 +29,6 @@
                   {{ Form::open(['route' => ['admin.dealers.edit', $dealer->id], 'method' => 'get']) }}
                   {{ Form::submit('Edit') }}
                   {{ Form::close() }}
-                </td>
-                <td>
                   {{ Form::open(['route' => ['admin.dealers.delete', $dealer->id], 'method' => 'delete']) }}
                   {{ Form::submit('Delete') }}
                   {{ Form::close() }}
