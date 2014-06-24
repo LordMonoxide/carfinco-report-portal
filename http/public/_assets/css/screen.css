@@ -392,6 +392,8 @@
 		-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	}
+	.reports li.current a,
+	.reports a:hover,
 	.archives li.current a,
 	.archives a:hover {
 		background:#0081c6;
